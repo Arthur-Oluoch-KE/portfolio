@@ -31,23 +31,21 @@ const SocialSidebar = () => {
 
   return (
     <div 
-      className="fixed left-6 bottom-0 z-40 hidden md:flex flex-col items-center"
+      className="fixed left-6 bottom-0 z-40 hidden md:flex flex-col items-center space-y-6"
       style={{ transform: `translateY(-${transformValue}px)`, transition: 'transform 0.3s ease-out' }}
     >
-      <div className="flex flex-col space-y-6">
-        {socialLinks.map((link) => (
-          <a
-            key={link.name}
-            href={link.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-foreground/60 hover:text-primary transform hover:scale-110 transition-all duration-300"
-            aria-label={link.name}
-          >
-            <link.icon size={20} />
-          </a>
-        ))}
-      </div>
+      {socialLinks.map((link) => (
+        <a
+          key={link.name}
+          href={link.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-foreground/60 hover:text-primary transform hover:scale-110 transition-all duration-300"
+          aria-label={link.name}
+        >
+          <link.icon size={20} />
+        </a>
+      ))}
       <div className="w-[1px] h-24 bg-foreground/20 mt-6"></div>
     </div>
   );
