@@ -4,8 +4,8 @@ import { Download } from 'lucide-react';
 
 const About = () => {
   const skills = [
-    'JavaScript', 'TypeScript', 'React', 'Node.js', 
-    'Express', 'MongoDB', 'HTML5', 'CSS3',
+    'Python', 'JavaScript', 'React', 'Node.js', 
+    'Django', 'SQL', 'HTML5', 'CSS3', 'Typescript',
     'Tailwind CSS', 'Git', 'GitHub', 'REST API'
   ];
 
@@ -18,7 +18,7 @@ const About = () => {
             <div className="relative">
               <div className="w-full h-80 bg-primary/10 rounded-lg overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80" 
+                  src="/profile.jpg"
                   alt="Profile" 
                   className="w-full h-full object-cover"
                 />
@@ -31,10 +31,10 @@ const About = () => {
           <div className="md:w-2/3" data-aos="fade-left">
             <h2 className="text-3xl font-bold mb-6 inline-block relative after:content-[''] after:block after:w-1/2 after:h-1 after:bg-primary after:mt-2">About Me</h2>
             <p className="mb-4">
-              I'm a passionate full-stack developer with expertise in building responsive and dynamic web applications. With a strong foundation in modern JavaScript frameworks and libraries, I enjoy creating elegant solutions to complex problems.
+            I am a software developer with expertise in Python, MySQL, and Django, complemented by proficiency in modern JavaScript frameworks and libraries. I specialize in designing efficient and elegant solutions to complex technical challenges.
             </p>
             <p className="mb-6">
-              My journey in web development started over 5 years ago, and I've been continuously learning and adapting to the ever-evolving landscape of web technologies. I'm dedicated to writing clean, maintainable code and delivering exceptional user experiences.
+            With two years of experience in the technology field, I am consistently expanding my skill set to keep pace with the dynamic web development landscape. My focus is on producing clean, maintainable code while prioritizing the delivery of high-quality user experiences.
             </p>
             
             {/* Skills */}

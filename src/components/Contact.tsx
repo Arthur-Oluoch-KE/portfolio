@@ -75,21 +75,21 @@ const Contact = () => {
                 <MapPin className="mt-1 text-primary" />
                 <div>
                   <h4 className="font-medium">Location</h4>
-                  <p className="text-white/70">New York, NY, USA</p>
+                  <p className="text-white/70">Nairobi, Kenya</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
                 <Mail className="mt-1 text-primary" />
                 <div>
                   <h4 className="font-medium">Email</h4>
-                  <p className="text-white/70">contact@example.com</p>
+                  <p className="text-white/70">arthuroluoch624@gmail.com</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
                 <Phone className="mt-1 text-primary" />
                 <div>
                   <h4 className="font-medium">Phone</h4>
-                  <p className="text-white/70">+1 (123) 456-7890</p>
+                  <p className="text-white/70">+254796915506</p>
                 </div>
               </div>
             </div>

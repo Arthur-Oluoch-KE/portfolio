@@ -14,30 +14,30 @@ interface Project {
 const Projects = () => {
   // Sample projects data
   const projects: Project[] = [
-    {
+    /*{
       title: 'E-Commerce Platform',
       description: 'A full-featured e-commerce platform built with React, Node.js, and MongoDB. Includes user authentication, product management, cart functionality, and payment integration.',
       image: 'https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80',
       tags: ['React', 'Node.js', 'MongoDB', 'Express'],
       githubUrl: 'https://github.com',
       liveUrl: 'https://example.com',
-    },
-    {
+    },*/
+    /*{
       title: 'Task Management App',
       description: 'A productivity application for task management with drag-and-drop interface, user collaboration features, and real-time updates using WebSockets.',
       image: 'https://images.unsplash.com/photo-1611224885990-ab7363d1f2a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=739&q=80',
       tags: ['TypeScript', 'React', 'Firebase', 'Tailwind CSS'],
       githubUrl: 'https://github.com',
       liveUrl: 'https://example.com',
-    },
-    {
+    },*/
+    /*{
       title: 'Weather Dashboard',
       description: 'A weather application that provides real-time weather data and forecasts for locations worldwide. Features include interactive maps, charts, and mobile-responsive design.',
       image: 'https://images.unsplash.com/photo-1592210454359-9043f067919b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
       tags: ['JavaScript', 'API Integration', 'Chart.js', 'CSS3'],
       githubUrl: 'https://github.com',
       liveUrl: 'https://example.com',
-    },
+    },*/
   ];
 
   return (
@@ -46,7 +46,7 @@ const Projects = () => {
         <div className="text-center mb-16" data-aos="fade-up">
           <h2 className="text-3xl font-bold mb-4">My Projects</h2>
           <p className="max-w-2xl mx-auto text-muted-foreground">
-            Here are some of my recent projects. Each project represents a unique challenge and demonstrates different aspects of my skills and expertise.
+            Here you will find some of my recent projects. Keep it locked, something coming soon!
           </p>
         </div>
         

@@ -8,7 +8,7 @@ const Hero = () => {
       id="home" 
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       style={{
-        backgroundImage: "url('/lovable-uploads/87204419-3c33-49d1-a5cd-965376a402a9.png')",
+        backgroundImage: "url('/roman.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
@@ -20,10 +20,10 @@ const Hero = () => {
       <div className="section-container relative z-10 mt-20 text-center" data-aos="fade-up">
         <h1 className="text-white mb-6">
           <span className="block text-xl md:text-2xl font-normal mb-4">Hello, I'm</span>
-          <span className="text-4xl md:text-6xl font-bold">Your Name</span>
+          <span className="text-4xl md:text-6xl font-bold">Oscar Arthur</span>
         </h1>
         <h2 className="text-xl md:text-3xl text-white/90 mb-8">
-          Full-Stack Developer
+          Software Developer
         </h2>
         <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
           <a 

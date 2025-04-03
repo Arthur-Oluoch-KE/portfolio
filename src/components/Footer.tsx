@@ -7,10 +7,10 @@ const Footer = () => {
   
   // Social media links
   const socialLinks = [
-    { name: 'GitHub', icon: Github, href: 'https://github.com' },
-    { name: 'LinkedIn', icon: Linkedin, href: 'https://linkedin.com' },
-    { name: 'Twitter', icon: Twitter, href: 'https://twitter.com' },
-    { name: 'Email', icon: Mail, href: 'mailto:contact@example.com' },
+    { name: 'GitHub', icon: Github, href: 'https://github.com/Arthur-Oluoch-KE' },
+    { name: 'LinkedIn', icon: Linkedin, href: 'https://linkedin.com/in/arthur-oluoch-2641a1310' },
+    { name: 'Twitter', icon: Twitter, href: 'https://x.com/iam_oluoch' },
+    { name: 'Email', icon: Mail, href: 'mailto:arthuroluoch624@gmail.com' },
   ];
 
   return (
@@ -46,7 +46,7 @@ const Footer = () => {
           
           {/* Copyright */}
           <p className="text-white/60 text-sm">
-            © {currentYear} Portfolio. All rights reserved.
+            © {currentYear} Oscar Arthur. All rights reserved.
           </p>
         </div>
       </div>
