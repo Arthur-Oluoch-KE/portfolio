@@ -6,7 +6,6 @@ import About from '@/components/About';
 import Projects from '@/components/Projects';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
-import SocialSidebar from '@/components/SocialSidebar';
 
 const Index = () => {
   // Add scroll animation for elements with fade-in class
@@ -37,7 +36,6 @@ const Index = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <SocialSidebar />
       <main>
         <Hero />
         <About />
