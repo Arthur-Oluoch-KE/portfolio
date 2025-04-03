@@ -14,7 +14,7 @@ const About = () => {
       <div className="section-container">
         <div className="flex flex-col md:flex-row gap-12 items-center">
           {/* Image */}
-          <div className="md:w-1/3" data-aos="fade-right">
+          <div className="md:flex-1" data-aos="fade-right">
             <div className="relative">
               <div className="w-full h-80 bg-primary/10 rounded-lg overflow-hidden">
                 <img 
@@ -32,6 +32,9 @@ const About = () => {
             <h2 className="text-3xl font-bold mb-6 inline-block relative after:content-[''] after:block after:w-1/2 after:h-1 after:bg-primary after:mt-2">About Me</h2>
             <p className="mb-4">
             I am a software developer with expertise in Python, MySQL, and Django, complemented by proficiency in modern JavaScript frameworks and libraries. I specialize in designing efficient and elegant solutions to complex technical challenges.
+            </p>
+            <p className="mb-4">
+            I am driven by a passion for leveraging technology to solve complex human challenges. My interests extend to emerging technologies, data-driven decision-making, and optimizing systems for greater impact.
             </p>
             <p className="mb-6">
             With two years of experience in the technology field, I am consistently expanding my skill set to keep pace with the dynamic web development landscape. My focus is on producing clean, maintainable code while prioritizing the delivery of high-quality user experiences.

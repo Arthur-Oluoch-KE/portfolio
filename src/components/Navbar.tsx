@@ -38,13 +38,13 @@ const Navbar = () => {
   return (
     <nav 
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-background/95 backdrop-blur-sm shadow-md py-3' : 'bg-transparent py-5'
+        isScrolled ? 'bg-gray-900/90 backdrop-blur-sm shadow-md py-3' : 'bg-transparent py-5'
       }`}
     >
       <div className="section-container flex justify-between items-center">
         {/* Logo */}
-        <a href="#home" className="text-2xl font-bold text-foreground">
-          Oscar Arthur
+        <a href="#home" className="text-2xl font-bold text-white hover:text-yellow-500 transition-colors">
+          <span className="text-yellow-500">Oscar Arthur</span>  
         </a>
 
         {/* Desktop Navigation */}
@@ -53,7 +53,8 @@ const Navbar = () => {
             <a
               key={item.title}
               href={item.href}
-              className="text-foreground/80 hover:text-primary transition-colors font-medium"
+              className="text-white hover:text-yellow-500 transition-colors font-medium"
+
             >
               {item.title}
             </a>
@@ -78,7 +79,7 @@ const Navbar = () => {
               <a
                 key={item.title}
                 href={item.href}
-                className="text-foreground/80 hover:text-primary transition-colors font-medium py-2"
+                className="text-white hover:text-yellow-500 transition-colors font-medium py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.title}

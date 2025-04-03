@@ -23,6 +23,9 @@ const Hero = () => {
           <span className="text-4xl md:text-6xl font-bold">Oscar Arthur</span>
         </h1>
         <h2 className="text-xl md:text-3xl text-white/90 mb-8">
+          A
+        </h2>
+        <h2 className="text-xl md:text-3xl text-white/90 mb-8">
           Software Developer
         </h2>
         <div className="flex flex-col sm:flex-row justify-center items-center gap-4">

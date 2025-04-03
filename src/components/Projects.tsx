@@ -46,7 +46,7 @@ const Projects = () => {
         <div className="text-center mb-16" data-aos="fade-up">
           <h2 className="text-3xl font-bold mb-4">My Projects</h2>
           <p className="max-w-2xl mx-auto text-muted-foreground">
-            Here you will find some of my recent projects. Keep it locked, something coming soon!
+            Coming soon...
           </p>
         </div>
         
