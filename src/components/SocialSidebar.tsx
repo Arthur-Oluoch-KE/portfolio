@@ -1,8 +1,26 @@
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Github, Linkedin, Mail, Twitter } from 'lucide-react';
 
 const SocialSidebar = () => {
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  // Track scroll position
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollPosition(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  // Calculate the transform value based on scroll position
+  // This will move the sidebar up as the user scrolls down
+  const transformValue = scrollPosition > 0 ? Math.min(scrollPosition * 0.2, 100) : 0;
+
   // Social media links
   const socialLinks = [
     { name: 'GitHub', icon: Github, href: 'https://github.com' },
@@ -12,7 +30,10 @@ const SocialSidebar = () => {
   ];
 
   return (
-    <div className="fixed left-6 bottom-0 z-40 hidden md:flex flex-col items-center">
+    <div 
+      className="fixed left-6 bottom-0 z-40 hidden md:flex flex-col items-center"
+      style={{ transform: `translateY(-${transformValue}px)`, transition: 'transform 0.3s ease-out' }}
+    >
       <div className="flex flex-col space-y-6">
         {socialLinks.map((link) => (
           <a
