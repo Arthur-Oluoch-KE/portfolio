@@ -91,7 +91,7 @@ npm run dev
 - **Projects**: Modify the projects array in `Projects.tsx` to showcase your work
 - **Colors**: Adjust the color scheme in `tailwind.config.ts` and `index.css`
 - **Resume**: Replace `public/resume.pdf` with your actual resume
-- **Images**: Update images in the `public/lovable-uploads/` directory or use different image URLs
+- **Images**: Update images in the `public` directory or use different image URLs
 
 ## Deployment
 
@@ -105,7 +105,7 @@ This project is open source and available under the MIT License.
 
 - [Ram Maheshwari](https://rammaheshwari.com/) for design inspiration
 - [Unsplash](https://unsplash.com/) for stock photos
-- [Lovable](https://lovable.dev/) for development platform
+
 
 ---
 
