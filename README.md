@@ -1,73 +1,111 @@
-# Welcome to your Lovable project
 
-## Project info
+# Modern Portfolio Website
 
-**URL**: https://lovable.dev/projects/b0f2ec57-2111-40cf-8ff0-5a1a5822c583
+A sleek, responsive portfolio website built with React, Tailwind CSS, and enhanced with smooth scrolling animations.
 
-## How can I edit this code?
+## Live Demo
 
-There are several ways of editing your application.
+Visit the live website: [Portfolio Website](https://lovable.dev/projects/b0f2ec57-2111-40cf-8ff0-5a1a5822c583)
 
-**Use Lovable**
+## Features
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/b0f2ec57-2111-40cf-8ff0-5a1a5822c583) and start prompting.
+- **Modern Design**: Clean and professional layout with warm wooden tones
+- **Fully Responsive**: Looks great on all devices, from mobile to desktop
+- **Smooth Animations**: Subtle fade-in effects as you scroll through sections
+- **Persistent Social Links**: Social media sidebar that stays visible while scrolling
+- **Resume Download**: Downloadable resume in the About section
+- **Contact Form**: Integrated with Netlify Forms for easy contact submissions
 
-Changes made via Lovable will be committed automatically to this repo.
+## Sections
 
-**Use your preferred IDE**
+1. **Hero**: Striking full-screen introduction with background image
+2. **About**: Personal information, skills, and resume download
+3. **Projects**: Showcase of recent work with links to live demos and code repositories
+4. **Contact**: Contact form and personal contact information
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## Technologies Used
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- **React**: Frontend library for building user interfaces
+- **TypeScript**: Type-safe JavaScript
+- **Tailwind CSS**: Utility-first CSS framework for styling
+- **AOS (Animate On Scroll)**: Library for scroll animations
+- **Lucide React**: Icon library
+- **Netlify Forms**: For handling contact form submissions without a backend
 
-Follow these steps:
+## Project Structure
 
+```
+├── public/
+│   ├── resume.pdf
+│   └── lovable-uploads/
+├── src/
+│   ├── components/
+│   │   ├── Navbar.tsx
+│   │   ├── Hero.tsx
+│   │   ├── SocialSidebar.tsx
+│   │   ├── About.tsx
+│   │   ├── Projects.tsx
+│   │   ├── Contact.tsx
+│   │   └── Footer.tsx
+│   ├── pages/
+│   │   ├── Index.tsx
+│   │   └── NotFound.tsx
+│   ├── App.tsx
+│   ├── index.css
+│   └── main.tsx
+├── tailwind.config.ts
+└── README.md
+```
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v14 or higher)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
 git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
 cd <YOUR_PROJECT_NAME>
+```
 
-# Step 3: Install the necessary dependencies.
-npm i
+2. Install dependencies:
+```sh
+npm install
+```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+3. Start the development server:
+```sh
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+4. Open your browser and navigate to `http://localhost:8080`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Customization
 
-**Use GitHub Codespaces**
+- **Personal Information**: Update text in the components to reflect your information
+- **Projects**: Modify the projects array in `Projects.tsx` to showcase your work
+- **Colors**: Adjust the color scheme in `tailwind.config.ts` and `index.css`
+- **Resume**: Replace `public/resume.pdf` with your actual resume
+- **Images**: Update images in the `public/lovable-uploads/` directory or use different image URLs
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Deployment
 
-## What technologies are used for this project?
+This project is ready for deployment on any static hosting service like Netlify, Vercel, or GitHub Pages.
 
-This project is built with:
+## License
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+This project is open source and available under the MIT License.
 
-## How can I deploy this project?
+## Acknowledgements
 
-Simply open [Lovable](https://lovable.dev/projects/b0f2ec57-2111-40cf-8ff0-5a1a5822c583) and click on Share -> Publish.
+- [Ram Maheshwari](https://rammaheshwari.com/) for design inspiration
+- [Unsplash](https://unsplash.com/) for stock photos
+- [Lovable](https://lovable.dev/) for development platform
 
-## Can I connect a custom domain to my Lovable project?
+---
 
-Yes it is!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Built with ❤️ using React and Tailwind CSS
