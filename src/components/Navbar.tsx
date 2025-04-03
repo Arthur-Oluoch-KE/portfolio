@@ -44,7 +44,7 @@ const Navbar = () => {
       <div className="section-container flex justify-between items-center">
         {/* Logo */}
         <a href="#home" className="text-2xl font-bold text-foreground">
-          Portfolio
+          Oscar Arthur
         </a>
 
         {/* Desktop Navigation */}
