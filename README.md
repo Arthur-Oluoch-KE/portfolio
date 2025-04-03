@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 # Modern Portfolio Website
 
@@ -109,3 +110,7 @@ This project is open source and available under the MIT License.
 ---
 
 Built with ❤️ using React and Tailwind CSS
+=======
+# portfolio
+My web portfolio
+
