@@ -28,17 +28,17 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-
+  
     try {
       await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formData as any).toString(),
+        body: new URLSearchParams({
+          'form-name': 'contact', // 👈 Important for Netlify
+          ...formState,            // Spread your form values here
+        }).toString(),
       });
-
+  
       setFormStatus({ submitted: true, success: true, message: 'Message sent successfully!' });
       setFormState({ name: '', email: '', subject: '', message: '' });
     } catch (error) {
