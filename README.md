@@ -105,6 +105,7 @@ This project is open source and available under the MIT License.
 
 - [Ram Maheshwari](https://rammaheshwari.com/) for design inspiration
 - [Unsplash](https://unsplash.com/) for stock photos
+- [Lovable.dav](https://lovable.dev/) for development ideas
 
 
 ---
