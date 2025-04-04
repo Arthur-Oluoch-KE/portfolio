@@ -9,41 +9,11 @@ const Contact = () => {
     message: '',
   });
 
-  const [formStatus, setFormStatus] = useState<{
-    submitted: boolean;
-    success: boolean;
-    message: string;
-  }>({
-    submitted: false,
-    success: false,
-    message: '',
-  });
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormState({
       ...formState,
       [e.target.name]: e.target.value,
     });
-  };
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-  
-    try {
-      await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams({
-          'form-name': 'contact', // 👈 Important for Netlify
-          ...formState,            // Spread your form values here
-        }).toString(),
-      });
-  
-      setFormStatus({ submitted: true, success: true, message: 'Message sent successfully!' });
-      setFormState({ name: '', email: '', subject: '', message: '' });
-    } catch (error) {
-      setFormStatus({ submitted: true, success: false, message: 'Something went wrong.' });
-    }
   };
 
   return (
@@ -111,9 +81,11 @@ const Contact = () => {
               method="POST"
               data-netlify="true"
               name="contact"
-              onSubmit={handleSubmit}
             >
               <input type="hidden" name="form-name" value="contact" />
+              <input type="hidden" name="redirect" value="/thank-you" />
+              {/* Optional: Redirect to a thank you page */}
+              {/* <input type="hidden" name="redirect" value="/thank-you" /> */}
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
                 <div>
@@ -179,12 +151,6 @@ const Contact = () => {
                 <Send size={18} />
                 Send Message
               </button>
-
-              {formStatus.submitted && (
-                <div className={`mt-4 p-3 rounded ${formStatus.success ? 'bg-green-500/20 text-green-200' : 'bg-red-500/20 text-red-200'}`}>
-                  {formStatus.message}
-                </div>
-              )}
             </form>
           </div>
         </div>
