@@ -31,7 +31,7 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white-500 backdrop-blur-sm shadow-md py-3' : 'bg-transparent py-5'
+        isScrolled ? 'bg-gray-900/90 backdrop-blur-sm shadow-md py-3' : 'bg-transparent py-5'
       }`}
     >
       <div className="section-container flex justify-between items-center">
@@ -54,7 +54,7 @@ const Navbar = () => {
 
         {/* Navigation Links (Desktop and Mobile) */}
         <div
-          className={`text-white font-medium 
+          className={`text-blue font-medium 
                      flex md:flex-row flex-col 
                      space-y-4 md:space-y-0 md:space-x-8 
                      ${isMenuOpen ? 'flex' : 'hidden'} md:flex 
