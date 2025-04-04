@@ -9,7 +9,7 @@ const Contact = () => {
     message: '',
   });
 
-  const [status, setStatus] = useState(''); // For submission feedback
+  const [status, setStatus] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormState({
@@ -19,11 +19,10 @@ const Contact = () => {
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault(); // Prevent default momentarily
-    setStatus('Submitting...'); // Show feedback
-
+    e.preventDefault();
+    setStatus('Submitting...');
     const form = e.currentTarget;
-    form.submit(); // Trigger native Netlify submission
+    form.submit(); // Let Netlify handle it
   };
 
   return (
