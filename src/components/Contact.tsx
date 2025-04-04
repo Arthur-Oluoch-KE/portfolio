@@ -9,38 +9,11 @@ const Contact = () => {
     message: '',
   });
 
-  const [status, setStatus] = useState(''); // To display success/error messages
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormState({
       ...formState,
       [e.target.name]: e.target.value,
     });
-  };
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault(); // Prevent default form submission
-
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-
-    try {
-      const response = await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formData as any).toString(),
-      });
-
-      if (response.ok) {
-        setStatus('Message sent successfully!');
-        setFormState({ name: '', email: '', subject: '', message: '' }); // Reset form
-      } else {
-        setStatus('Failed to send message. Please try again.');
-      }
-    } catch (error) {
-      setStatus('An error occurred. Please try again.');
-      console.error('Form submission error:', error);
-    }
   };
 
   return (
@@ -54,7 +27,7 @@ const Contact = () => {
       }}
     >
       {/* Hidden Netlify form for build-time detection */}
-      <form name="contact" data-netlify hidden>
+      <form name="contact" data-netlify="true" hidden>
         <input type="text" name="name" />
         <input type="email" name="email" />
         <input type="text" name="subject" />
@@ -108,7 +81,7 @@ const Contact = () => {
               method="POST"
               name="contact"
               data-netlify="true"
-              onSubmit={handleSubmit} // Add custom submit handler
+              action="/success"
             >
               <input type="hidden" name="form-name" value="contact" />
 
@@ -176,9 +149,6 @@ const Contact = () => {
                 <Send size={18} />
                 Send Message
               </button>
-
-              {/* Display submission status */}
-              {status && <p className="mt-4 text-white">{status}</p>}
             </form>
           </div>
         </div>
