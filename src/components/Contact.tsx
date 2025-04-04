@@ -50,7 +50,7 @@ const Contact = () => {
       id="contact" 
       className="py-20 relative"
       style={{
-        backgroundImage: "url('/lovable-uploads/71f96449-1f10-4c93-a582-338ec95c7cfb.png')",
+        backgroundImage: "url('/visax.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
