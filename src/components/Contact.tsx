@@ -83,7 +83,6 @@ const Contact = () => {
               name="contact"
             >
               <input type="hidden" name="form-name" value="contact" />
-              <input type="hidden" name="redirect" value="/thank-you" />
               {/* Optional: Redirect to a thank you page */}
               {/* <input type="hidden" name="redirect" value="/thank-you" /> */}
 
