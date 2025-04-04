@@ -38,7 +38,7 @@ Visit the live website: [Portfolio Website](https://oscar-arthur.netlify.app/)
 ```
 ├── public/
 │   ├── resume.pdf
-│   └── lovable-uploads/
+│   └── pics/
 ├── src/
 │   ├── components/
 │   │   ├── Navbar.tsx
