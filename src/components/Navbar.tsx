@@ -59,14 +59,14 @@ const Navbar = () => {
                      space-y-4 md:space-y-0 md:space-x-8 
                      ${isMenuOpen ? 'flex' : 'hidden'} md:flex 
                      absolute md:static top-full left-0 w-full md:w-auto 
-                     bg-white md:bg-transparent p-4 md:p-0 
+                     bg-gray md:bg-transparent p-4 md:p-0 
                      transition-all duration-300`}
         >
           {menuItems.map((item) => (
             <a
               key={item.title}
               href={item.href}
-              className="text-blue hover:text-yellow-500 transition-colors font-medium py-2 md:py-0"
+              className="text-white hover:text-yellow-500 transition-colors font-medium py-2 md:py-0"
               onClick={() => setIsMenuOpen(false)} // Close menu on link click (mobile)
             >
               {item.title}
