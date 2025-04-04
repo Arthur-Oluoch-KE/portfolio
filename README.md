@@ -6,7 +6,7 @@ A sleek, responsive portfolio website built with React, Tailwind CSS, and enhanc
 
 ## Live Demo
 
-Visit the live website: [Portfolio Website](https://oscar-arthur-portfolio.netlify.app/)
+Visit the live website: [Portfolio Website](https://oscar-arthur.netlify.app/)
 
 ## Features
 
