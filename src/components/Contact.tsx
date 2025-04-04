@@ -18,11 +18,32 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus('Submitting...');
+
     const form = e.currentTarget;
-    form.submit(); // Let Netlify handle it
+    const formData = new FormData(form);
+    formData.append('form-name', 'contact'); // Ensure form-name is included
+
+    try {
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString(),
+      });
+
+      if (response.ok) {
+        setStatus('Message sent successfully!');
+        setFormState({ name: '', email: '', subject: '', message: '' });
+      } else {
+        setStatus(`Failed to send message. Status: ${response.status}`);
+        console.log('Response:', response.status, await response.text());
+      }
+    } catch (error) {
+      setStatus('An error occurred. Please try again.');
+      console.error('Submission error:', error);
+    }
   };
 
   return (
@@ -90,7 +111,6 @@ const Contact = () => {
               method="POST"
               name="contact"
               data-netlify="true"
-              action="/success"
               onSubmit={handleSubmit}
             >
               <input type="hidden" name="form-name" value="contact" />
