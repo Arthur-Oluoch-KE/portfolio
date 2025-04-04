@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { MapPin, Mail, Phone, Send } from 'lucide-react';
 
 const Contact = () => {
@@ -10,6 +10,7 @@ const Contact = () => {
   });
 
   const [status, setStatus] = useState('');
+  const iframeRef = useRef(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormState({
@@ -18,42 +19,33 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus('Submitting...');
 
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-    formData.append('form-name', 'contact'); // Required for Netlify to identify the form
-
-    // Log form data for debugging
-    console.log('Form Data:', Object.fromEntries(formData));
-
-    try {
-      const response = await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(
-          Object.fromEntries(
-            Array.from(formData.entries()).map(([key, value]) => [key, value.toString()])
-          )
-        ).toString(),
-      });
-
-      console.log('Response Status:', response.status); // Log status for debugging
-
-      if (response.ok) {
-        setStatus('Message sent successfully!');
-        setFormState({ name: '', email: '', subject: '', message: '' });
-      } else {
-        setStatus(`Failed to send message. Status: ${response.status}`);
-        console.log('Response Text:', await response.text()); // Log response body for more info
-      }
-    } catch (error) {
-      setStatus('An error occurred. Please try again.');
-      console.error('Submission error:', error);
+    const iframe = iframeRef.current;
+    if (iframe && iframe.contentWindow) {
+      iframe.contentWindow.postMessage(
+        {
+          type: 'submitForm',
+          formData: formState,
+        },
+        '*'
+      );
     }
   };
+
+  useEffect(() => {
+    const handleMessage = (event) => {
+      if (event.data === 'success') {
+        setStatus('Message sent successfully!');
+        setFormState({ name: '', email: '', subject: '', message: '' });
+      }
+    };
+
+    window.addEventListener('message', handleMessage);
+    return () => window.removeEventListener('message', handleMessage);
+  }, []);
 
   return (
     <section 
@@ -65,13 +57,13 @@ const Contact = () => {
         backgroundPosition: "center",
       }}
     >
-      {/* Hidden Netlify form for build-time detection */}
-      <form name="contact" data-netlify="true" netlify hidden>
-        <input type="text" name="name" />
-        <input type="email" name="email" />
-        <input type="text" name="subject" />
-        <textarea name="message" />
-      </form>
+      {/* Hidden iframe for form submission */}
+      <iframe
+        ref={iframeRef}
+        src="/submit-form.html"
+        style={{ display: 'none' }}
+        title="Form Submission Handler"
+      ></iframe>
 
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/70"></div>
@@ -117,13 +109,8 @@ const Contact = () => {
           <div data-aos="fade-left">
             <form
               className="bg-white/10 backdrop-blur-sm p-8 rounded-lg"
-              method="POST"
-              name="contact"
-              data-netlify="true"
               onSubmit={handleSubmit}
             >
-              <input type="hidden" name="form-name" value="contact" />
-
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
                 <div>
                   <label htmlFor="name" className="block text-white mb-2 text-sm">Your Name</label>

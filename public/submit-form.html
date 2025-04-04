@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Form Submission</title>
+  </head>
+  <body>
+    <!-- Netlify will process this form -->
+    <form
+      name="contact"
+      method="POST"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      action="/submit-form.html?success=true"
+      hidden
+    >
+      <input type="hidden" name="form-name" value="contact" />
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="subject" />
+      <textarea name="message"></textarea>
+    </form>
+
+    <script>
+      // Check URL for success parameter
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('success') === 'true') {
+        window.parent.postMessage('success', '*');
+      }
+
+      // Listen for form data from React
+      window.addEventListener('message', (event) => {
+        if (event.data.type === 'submitForm') {
+          const form = document.forms['contact'];
+          const data = event.data.formData;
+          form.elements['name'].value = data.name;
+          form.elements['email'].value = data.email;
+          form.elements['subject'].value = data.subject;
+          form.elements['message'].value = data.message;
+          form.submit();
+        }
+      });
+    </script>
+  </body>
+</html>
