@@ -24,21 +24,30 @@ const Contact = () => {
 
     const form = e.currentTarget;
     const formData = new FormData(form);
-    formData.append('form-name', 'contact'); // Ensure form-name is included
+    formData.append('form-name', 'contact'); // Required for Netlify to identify the form
+
+    // Log form data for debugging
+    console.log('Form Data:', Object.fromEntries(formData));
 
     try {
       const response = await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formData).toString(),
+        body: new URLSearchParams(
+          Object.fromEntries(
+            Array.from(formData.entries()).map(([key, value]) => [key, value.toString()])
+          )
+        ).toString(),
       });
+
+      console.log('Response Status:', response.status); // Log status for debugging
 
       if (response.ok) {
         setStatus('Message sent successfully!');
         setFormState({ name: '', email: '', subject: '', message: '' });
       } else {
         setStatus(`Failed to send message. Status: ${response.status}`);
-        console.log('Response:', response.status, await response.text());
+        console.log('Response Text:', await response.text()); // Log response body for more info
       }
     } catch (error) {
       setStatus('An error occurred. Please try again.');
@@ -57,7 +66,7 @@ const Contact = () => {
       }}
     >
       {/* Hidden Netlify form for build-time detection */}
-      <form name="contact" data-netlify="true" hidden>
+      <form name="contact" data-netlify="true" netlify hidden>
         <input type="text" name="name" />
         <input type="email" name="email" />
         <input type="text" name="subject" />
