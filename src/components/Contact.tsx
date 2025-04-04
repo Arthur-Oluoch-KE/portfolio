@@ -9,11 +9,38 @@ const Contact = () => {
     message: '',
   });
 
+  const [status, setStatus] = useState(''); // To display success/error messages
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormState({
       ...formState,
       [e.target.name]: e.target.value,
     });
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); // Prevent default form submission
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData as any).toString(),
+      });
+
+      if (response.ok) {
+        setStatus('Message sent successfully!');
+        setFormState({ name: '', email: '', subject: '', message: '' }); // Reset form
+      } else {
+        setStatus('Failed to send message. Please try again.');
+      }
+    } catch (error) {
+      setStatus('An error occurred. Please try again.');
+      console.error('Form submission error:', error);
+    }
   };
 
   return (
@@ -79,12 +106,11 @@ const Contact = () => {
             <form
               className="bg-white/10 backdrop-blur-sm p-8 rounded-lg"
               method="POST"
-              data-netlify="true"
               name="contact"
+              data-netlify="true"
+              onSubmit={handleSubmit} // Add custom submit handler
             >
               <input type="hidden" name="form-name" value="contact" />
-              {/* Optional: Redirect to a thank you page */}
-              {/* <input type="hidden" name="redirect" value="/thank-you" /> */}
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
                 <div>
@@ -150,6 +176,9 @@ const Contact = () => {
                 <Send size={18} />
                 Send Message
               </button>
+
+              {/* Display submission status */}
+              {status && <p className="mt-4 text-white">{status}</p>}
             </form>
           </div>
         </div>
