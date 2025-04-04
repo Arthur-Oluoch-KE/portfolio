@@ -9,11 +9,22 @@ const Contact = () => {
     message: '',
   });
 
+  const [status, setStatus] = useState(''); // Optional: For success/error feedback
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormState({
       ...formState,
       [e.target.name]: e.target.value,
     });
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); // Prevent default momentarily to handle state
+    setStatus('Submitting...'); // Optional: Show submitting status
+
+    // Allow Netlify to handle the form submission naturally
+    const form = e.currentTarget;
+    form.submit(); // Trigger the native form submission
   };
 
   return (
@@ -82,6 +93,7 @@ const Contact = () => {
               name="contact"
               data-netlify="true"
               action="/success"
+              onSubmit={handleSubmit} // Custom handler to retain functionality
             >
               <input type="hidden" name="form-name" value="contact" />
 
@@ -149,6 +161,9 @@ const Contact = () => {
                 <Send size={18} />
                 Send Message
               </button>
+
+              {/* Optional: Display submission status */}
+              {status && <p className="mt-4 text-white">{status}</p>}
             </form>
           </div>
         </div>
