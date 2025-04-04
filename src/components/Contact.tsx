@@ -69,26 +69,26 @@ const Contact = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* Contact Information */}
           <div className="text-white" data-aos="fade-right">
-            <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
+            <h3 className="text-2xl font-semibold mb-6 text-blue-500">Contact Information</h3>
             <div className="space-y-6">
               <div className="flex items-start space-x-4">
-                <MapPin className="mt-1 text-yellow" />
+                <MapPin className="mt-1 text-primary" />
                 <div>
-                  <h4 className="text-yellow font-medium">Location</h4>
+                  <h4 className="font-medium text-blue-500">Location</h4>
                   <p className="text-white/70">Nairobi, Kenya</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
-                <Mail className="mt-1 text-yellow" />
+                <Mail className="mt-1 text-primary" />
                 <div>
-                  <h4 className="font-medium">Email</h4>
+                  <h4 className="font-medium text-blue-500">Email</h4>
                   <p className="text-white/70">arthuroluoch624@gmail.com</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
-                <Phone className="mt-1 text-yellow" />
+                <Phone className="mt-1 text-primary" />
                 <div>
-                  <h4 className="font-medium">Phone</h4>
+                  <h4 className="font-medium text-blue-500">Phone</h4>
                   <p className="text-white/70">+254796915506</p>
                 </div>
               </div>
