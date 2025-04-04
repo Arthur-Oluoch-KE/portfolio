@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { MapPin, Mail, Phone, Send } from 'lucide-react';
 
@@ -27,22 +26,24 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setFormStatus({
-      submitted: true,
-      success: true,
-      message: 'Thank you! Your message has been sent successfully.',
-    });
-    
-    // In a real implementation, we would submit to Netlify Forms
-    // Reset form after successful submission
-    setFormState({
-      name: '',
-      email: '',
-      subject: '',
-      message: '',
-    });
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData as any).toString(),
+      });
+
+      setFormStatus({ submitted: true, success: true, message: 'Message sent successfully!' });
+      setFormState({ name: '', email: '', subject: '', message: '' });
+    } catch (error) {
+      setFormStatus({ submitted: true, success: false, message: 'Something went wrong.' });
+    }
   };
 
   return (
@@ -55,9 +56,17 @@ const Contact = () => {
         backgroundPosition: "center",
       }}
     >
+      {/* Hidden Netlify form for build-time detection */}
+      <form name="contact" netlify hidden>
+        <input type="text" name="name" />
+        <input type="email" name="email" />
+        <input type="text" name="subject" />
+        <textarea name="message" />
+      </form>
+
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/70"></div>
-      
+
       <div className="section-container relative z-10">
         <div className="text-center mb-16" data-aos="fade-up">
           <h2 className="text-3xl font-bold mb-4 text-white">Get In Touch</h2>
@@ -65,7 +74,7 @@ const Contact = () => {
             Have a project in mind or want to discuss potential opportunities? I'd love to hear from you!
           </p>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* Contact Information */}
           <div className="text-white" data-aos="fade-right">
@@ -94,17 +103,18 @@ const Contact = () => {
               </div>
             </div>
           </div>
-          
+
           {/* Contact Form */}
           <div data-aos="fade-left">
-            <form 
+            <form
               className="bg-white/10 backdrop-blur-sm p-8 rounded-lg"
-              onSubmit={handleSubmit}
+              method="POST"
               data-netlify="true"
               name="contact"
+              onSubmit={handleSubmit}
             >
               <input type="hidden" name="form-name" value="contact" />
-              
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
                 <div>
                   <label htmlFor="name" className="block text-white mb-2 text-sm">Your Name</label>
@@ -133,7 +143,7 @@ const Contact = () => {
                   />
                 </div>
               </div>
-              
+
               <div className="mb-6">
                 <label htmlFor="subject" className="block text-white mb-2 text-sm">Subject</label>
                 <input
@@ -147,7 +157,7 @@ const Contact = () => {
                   placeholder="Project Inquiry"
                 />
               </div>
-              
+
               <div className="mb-6">
                 <label htmlFor="message" className="block text-white mb-2 text-sm">Message</label>
                 <textarea
@@ -161,7 +171,7 @@ const Contact = () => {
                   placeholder="Your message here..."
                 ></textarea>
               </div>
-              
+
               <button
                 type="submit"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded hover:bg-wood transition-colors"
@@ -169,7 +179,7 @@ const Contact = () => {
                 <Send size={18} />
                 Send Message
               </button>
-              
+
               {formStatus.submitted && (
                 <div className={`mt-4 p-3 rounded ${formStatus.success ? 'bg-green-500/20 text-green-200' : 'bg-red-500/20 text-red-200'}`}>
                   {formStatus.message}
